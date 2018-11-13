@@ -1,2 +1,0 @@
-# LongAndUselessEvalFunction
-Created with CodeSandbox
