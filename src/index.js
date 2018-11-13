@@ -5,7 +5,8 @@ function solveExpression() {
   for (var a = 0; a < vyraz.length; a++) {
     //if number add
     if (!isNaN(vyraz[a])) {
-      postFix += vyraz[a] + " ";
+      postFix += vyraz[a];
+      console.log(postFix)
     }
     //if operator
     if (
@@ -14,6 +15,7 @@ function solveExpression() {
       vyraz[a] === "/" ||
       vyraz[a] === "*"
     ) {
+      postFix+=" "
       //if last operand is * or / pop
       if (getWeight(stack[stack.length - 1]) == 2) {
         console.log("here");
@@ -37,7 +39,8 @@ function solveExpression() {
   while (stack.length != 1) {
     postFix += stack.pop() + " ";
   }
-  return (postFix += stack.pop());
+  // console.log(postFix + stack.pop());
+  return (postFix += " " + stack.pop());
 }
 function getWeight(str) {
   switch (str) {
