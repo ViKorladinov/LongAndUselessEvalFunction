@@ -6,7 +6,7 @@ function solveExpression() {
     //if number add
     if (!isNaN(vyraz[a])) {
       postFix += vyraz[a];
-      console.log(postFix)
+      console.log(postFix);
     }
     //if operator
     if (
@@ -15,7 +15,7 @@ function solveExpression() {
       vyraz[a] === "/" ||
       vyraz[a] === "*"
     ) {
-      postFix+=" "
+      postFix += " ";
       //if last operand is * or / pop
       if (getWeight(stack[stack.length - 1]) == 2) {
         console.log("here");
@@ -84,7 +84,14 @@ var input = document.getElementById("vyraz");
 input.addEventListener("keyup", function(event) {
   event.preventDefault();
   if (event.keyCode === 13) {
-    document.getElementById("vysledek").innerHTML =
-      "Vysledek je:" + solvePostfix(solveExpression());
+    var a = solvePostfix(solveExpression());
+    var s = isNaN(a);
+    console.log(s);
+    if (!s) {
+      document.getElementById("vysledek").innerHTML = "Vysledek je:" + a;
+    } else {
+      document.getElementById("vysledek").innerHTML =
+        "Impossible expresison  boi ";
+    }
   }
 });
